@@ -1,0 +1,361 @@
+/*
+Theme Name: DougieWougie Theme
+Author: Gemini
+Author URI: https://dougiewougie.com
+Description: A modern WordPress theme for my personal blog.
+Version: 1.1
+*/
+
+/* Basic CSS Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* Light Mode Palette */
+    --bg-color: #FFF8E1;
+    --text-color: #3E2723;
+    --link-color: #D35400;
+    --link-hover: #E67E22;
+    --card-bg: #FFFFFF;
+    --border-color: #D7CCC8;
+    --header-border: #EFEBE9;
+    --code-bg: #F5F5F5;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: sans-serif;
+    line-height: 1.6;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+p {
+    margin-bottom: 1em;
+}
+
+p:last-child {
+    margin-bottom: 0;
+}
+
+ul, ol {
+    padding-left: 2em;
+    margin-bottom: 1em;
+}
+
+li {
+    margin-bottom: 0.5em;
+}
+
+li:last-child {
+    margin-bottom: 0;
+}
+
+pre {
+    background-color: var(--code-bg);
+    padding: 1em;
+    border-radius: 4px;
+    overflow-x: auto;
+    margin-bottom: 1.5em;
+}
+
+code {
+    background-color: var(--code-bg);
+    padding: 1em;
+    border-radius: 4px;
+    font-family: monospace;
+    display: inline-block;
+}
+
+pre code {
+    padding: 0;
+    display: block;
+}
+
+/* Dark Mode Overrides */
+.dark-mode {
+    --bg-color: #222;
+    --text-color: #eee;
+    --link-color: #3498db;
+    --link-hover: #5dade2;
+    --card-bg: #333;
+    --border-color: #444;
+    --header-border: #444;
+    --code-bg: #444;
+}
+
+body.dark-mode {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+#masthead {
+    padding: 40px 0;
+    border-bottom: 1px solid var(--header-border);
+    margin-bottom: 40px;
+}
+
+.site-branding {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.profile-pic {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--link-color);
+}
+
+.site-title {
+    margin: 0;
+    line-height: 1.2;
+    font-size: 2rem;
+}
+
+.site-footer {
+    font-size: 0.9rem;
+    margin-top: 40px;
+    padding-bottom: 20px;
+    text-align: center;
+    color: var(--text-color);
+    opacity: 0.8;
+}
+
+.site-title a {
+    color: var(--text-color);
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.site-description {
+    margin: 5px 0 0;
+    color: var(--text-color);
+    opacity: 0.8;
+}
+
+a {
+    color: var(--link-color);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: var(--link-hover);
+}
+
+/* Toggle Switch */
+.dark-mode-switch {
+    position: fixed;
+    top: 30px;
+    right: 30px;
+    z-index: 1000;
+}
+
+.dark-mode-checkbox {
+    display: none;
+}
+
+.dark-mode-label {
+    display: block;
+    width: 60px;
+    height: 34px;
+    background-color: #f0f0f0;
+    border-radius: 17px;
+    position: relative;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    box-shadow: 0 0 5px rgba(0,0,0,0.2);
+}
+
+.dark-mode-label::after {
+    content: '';
+    display: block;
+    width: 28px;
+    height: 28px;
+    background-color: #fff;
+    border-radius: 50%;
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    transition: transform 0.3s;
+    box-shadow: 0 0 2px rgba(0,0,0,0.2);
+}
+
+.dark-mode-checkbox:checked + .dark-mode-label {
+    background-color: #444;
+}
+
+.dark-mode-checkbox:checked + .dark-mode-label::after {
+    transform: translateX(26px);
+    background-color: #222;
+}
+
+.dark-mode-label .sun {
+    position: absolute;
+    top: 5px;
+    right: 6px;
+    left: auto;
+    transition: opacity 0.3s, transform 0.3s;
+    transform: scale(1);
+    stroke: #f39c12;
+}
+
+.dark-mode-label .moon {
+    position: absolute;
+    top: 5px;
+    left: 6px;
+    right: auto;
+    opacity: 0;
+    transition: opacity 0.3s, transform 0.3s;
+    transform: scale(0);
+    stroke: #87ceeb;
+}
+
+.dark-mode-checkbox:checked + .dark-mode-label .sun {
+    opacity: 0;
+    transform: scale(0);
+}
+
+.dark-mode-checkbox:checked + .dark-mode-label .moon {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Cards */
+.card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    padding: 40px;
+    margin-bottom: 3em;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    transition: box-shadow 0.3s;
+    border-radius: 10px;
+}
+
+.card:hover {
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.entry-header, .entry-content {
+    margin-bottom: 20px;
+}
+
+.entry-title {
+    font-size: 1.8rem;
+    margin: 0;
+    line-height: 1.2;
+}
+
+.entry-title a {
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+.entry-title a:hover {
+    color: var(--link-color);
+}
+
+/* Buttons */
+.edit-button,
+.posts-navigation a {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: transparent;
+    border: 1px solid var(--border-color);
+    padding: 10px 20px;
+    border-radius: 5px;
+    color: var(--text-color);
+    text-decoration: none;
+    transition: background-color 0.3s, color 0.3s;
+    font-weight: bold;
+}
+
+.edit-button:hover,
+.posts-navigation a:hover {
+    background-color: var(--text-color);
+    color: var(--bg-color);
+}
+
+.posts-navigation {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+}
+
+.nav-icon svg {
+    width: 20px;
+    height: 20px;
+    display: block;
+}
+
+/* Tags */
+.tags-links {
+    margin-bottom: 15px;
+}
+
+.tags-links a {
+    display: inline-block;
+    padding: 4px 10px;
+    font-size: 0.85rem;
+    background-color: transparent;
+    border: 1px solid var(--border-color);
+    border-radius: 15px;
+    color: var(--text-color);
+    text-decoration: none;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    transition: all 0.3s;
+}
+
+.tags-links a:hover {
+    border-color: var(--link-color);
+    color: var(--link-color);
+}
+
+/* Back to Top Button (Inline) */
+.back-to-top-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.back-to-top-button {
+    width: 40px;
+    height: 40px;
+    background-color: var(--text-color);
+    color: var(--bg-color);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s, background-color 0.3s;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.back-to-top-button:hover {
+    background-color: var(--link-color);
+    transform: translateY(-3px);
+}
+
+.back-to-top-button svg {
+    width: 20px;
+    height: 20px;
+}
+
+
