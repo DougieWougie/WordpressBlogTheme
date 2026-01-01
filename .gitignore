@@ -1,0 +1,10 @@
+# Exclude theme zip
+theme.zip
+
+# Common excludes
+.DS_Store
+Thumbs.db
+*.log
+node_modules/
+.vscode/
+.idea/
