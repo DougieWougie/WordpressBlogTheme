@@ -16,10 +16,7 @@
                     ?>
                 </a>
                 <span class="sep"> | </span>
-                    <?php
-                    /* translators: 1: Theme name, 2: Theme author. */
-                    printf( esc_html__( 'Theme: %1$s by %2$s.', 'dougiewougie-theme' ), 'dougiewougie-theme', '<a href="https://dougiewougie.com">Gemini</a>' );
-                    ?>
+                <?php echo esc_html( '(c)2026 Dougie Richardson.' ); ?>
             </div><!-- .site-info -->
         </div>
     </footer><!-- #colophon -->

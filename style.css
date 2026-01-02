@@ -30,19 +30,6 @@ body {
     color: var(--text-color);
     font-family: sans-serif;
     line-height: 1.6;
-    transition: background-color 0.3s, color 0.3s;
-    animation: fadeInPage 0.8s ease-out;
-}
-
-@keyframes fadeInPage {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
 }
 
 p {
@@ -210,27 +197,24 @@ a:hover {
 
 .dark-mode-label {
     display: block;
-    width: 60px;
-    height: 34px;
+    width: 50px;
+    height: 26px;
     background-color: #f0f0f0;
-    border-radius: 17px;
+    border-radius: 13px;
     position: relative;
     cursor: pointer;
-    transition: background-color 0.3s;
     box-shadow: 0 0 5px rgba(0,0,0,0.2);
 }
 
-.dark-mode-label::after {
-    content: '';
+.toggle-ball {
     display: block;
-    width: 28px;
-    height: 28px;
+    width: 20px;
+    height: 20px;
     background-color: #fff;
     border-radius: 50%;
     position: absolute;
     top: 3px;
     left: 3px;
-    transition: transform 0.3s;
     box-shadow: 0 0 2px rgba(0,0,0,0.2);
 }
 
@@ -238,41 +222,31 @@ a:hover {
     background-color: #444;
 }
 
-.dark-mode-checkbox:checked + .dark-mode-label::after {
-    transform: translateX(26px);
-    background-color: #222;
+/* Checked state for toggle ball handled by JS now */
+.dark-mode-checkbox:checked + .dark-mode-label .toggle-ball {
+     background-color: #222; 
 }
 
 .dark-mode-label .sun {
     position: absolute;
-    top: 5px;
-    right: 6px;
+    top: 6px;
+    right: 8px;
     left: auto;
-    transition: opacity 0.3s, transform 0.3s;
     transform: scale(1);
     stroke: #f39c12;
 }
 
 .dark-mode-label .moon {
     position: absolute;
-    top: 5px;
-    left: 6px;
+    top: 6px;
+    left: 8px;
     right: auto;
     opacity: 0;
-    transition: opacity 0.3s, transform 0.3s;
     transform: scale(0);
     stroke: #87ceeb;
 }
 
-.dark-mode-checkbox:checked + .dark-mode-label .sun {
-    opacity: 0;
-    transform: scale(0);
-}
-
-.dark-mode-checkbox:checked + .dark-mode-label .moon {
-    opacity: 1;
-    transform: scale(1);
-}
+/* Checked state for sun/moon handled by JS now */
 
 /* Cards */
 .card {
@@ -477,31 +451,27 @@ a:hover {
     }
 
     .dark-mode-label {
-        width: 50px;
-        height: 28px;
-    }
-    
-    .dark-mode-label::after {
-        width: 24px;
+        width: 44px;
         height: 24px;
-        top: 2px;
-        left: 2px;
     }
     
-    .dark-mode-checkbox:checked + .dark-mode-label::after {
-        transform: translateX(22px);
+    .toggle-ball {
+        width: 18px;
+        height: 18px;
+        top: 3px;
+        left: 3px;
     }
     
     .dark-mode-label .sun, .dark-mode-label .moon {
-        top: 4px;
+        top: 5px;
     }
 
     .dark-mode-label .sun {
-        right: 4px;
+        right: 6px;
     }
 
     .dark-mode-label .moon {
-        left: 4px;
+        left: 6px;
     }
 
     #back-to-top {

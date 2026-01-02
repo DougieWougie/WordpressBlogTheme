@@ -1,5 +1,6 @@
 # Exclude theme zip
 theme.zip
+GEMINI.md
 
 # Common excludes
 .DS_Store
