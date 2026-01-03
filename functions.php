@@ -1,4 +1,9 @@
 <?php
+function dougiewougie_theme_setup() {
+    add_theme_support( 'html5', array( 'search-form' ) );
+}
+add_action( 'after_setup_theme', 'dougiewougie_theme_setup' );
+
 function dougiewougie_theme_scripts() {
     wp_enqueue_style( 'dougiewougie-theme-style', get_stylesheet_uri() );
     wp_enqueue_script( 'dougiewougie-theme-dark-mode', get_template_directory_uri() . '/js/dark-mode.js', array(), '1.0', true );
@@ -19,3 +24,38 @@ function dougiewougie_dark_mode_toggle() {
         </div>';
 }
 add_action( 'wp_body_open', 'dougiewougie_dark_mode_toggle' );
+
+/**
+ * Extend search to include categories and tags.
+ */
+function dougiewougie_advanced_search_join( $join ) {
+    global $wpdb;
+    if ( is_search() && ! is_admin() ) {
+        $join .=" LEFT JOIN {$wpdb->term_relationships} ON {$wpdb->posts}.ID = {$wpdb->term_relationships}.object_id ";
+        $join .=" LEFT JOIN {$wpdb->term_taxonomy} ON {$wpdb->term_relationships}.term_taxonomy_id = {$wpdb->term_taxonomy}.term_taxonomy_id ";
+        $join .=" LEFT JOIN {$wpdb->terms} ON {$wpdb->term_taxonomy}.term_id = {$wpdb->terms}.term_id ";
+    }
+    return $join;
+}
+add_filter('posts_join', 'dougiewougie_advanced_search_join');
+
+function dougiewougie_advanced_search_where( $where ) {
+    global $wpdb;
+    if ( is_search() && ! is_admin() ) {
+        $where = preg_replace(
+            "/\(\s*{$wpdb->posts}.post_title\s+LIKE\s*(\'[^\']+\')\s*\)/",
+            "({$wpdb->posts}.post_title LIKE $1) OR ({$wpdb->terms}.name LIKE $1)",
+            $where
+        );
+    }
+    return $where;
+}
+add_filter('posts_where', 'dougiewougie_advanced_search_where');
+
+function dougiewougie_advanced_search_distinct( $where ) {
+    if ( is_search() && ! is_admin() ) {
+        return "DISTINCT";
+    }
+    return $where;
+}
+add_filter('posts_distinct', 'dougiewougie_advanced_search_distinct');
