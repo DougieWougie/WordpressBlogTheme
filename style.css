@@ -40,7 +40,8 @@ p:last-child {
     margin-bottom: 0;
 }
 
-ul, ol {
+ul,
+ol {
     padding-left: 2em;
     margin-bottom: 1em;
 }
@@ -110,8 +111,8 @@ body.dark-mode {
 }
 
 .profile-pic {
-    width: 80px;
-    height: 80px;
+    width: 200px;
+    height: 200px;
     border-radius: 50%;
     object-fit: cover;
     border: 3px solid var(--link-color);
@@ -123,6 +124,12 @@ body.dark-mode {
 }
 
 .site-title {
+    margin: 0;
+    line-height: 1.2;
+    font-size: 2rem;
+}
+
+.site-title-social-links {
     margin: 0;
     line-height: 1.2;
     font-size: 2rem;
@@ -203,7 +210,7 @@ a:hover {
     border-radius: 13px;
     position: relative;
     cursor: pointer;
-    box-shadow: 0 0 5px rgba(0,0,0,0.2);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
 
 .toggle-ball {
@@ -215,16 +222,16 @@ a:hover {
     position: absolute;
     top: 3px;
     left: 3px;
-    box-shadow: 0 0 2px rgba(0,0,0,0.2);
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
 }
 
-.dark-mode-checkbox:checked + .dark-mode-label {
+.dark-mode-checkbox:checked+.dark-mode-label {
     background-color: #444;
 }
 
 /* Checked state for toggle ball handled by JS now */
-.dark-mode-checkbox:checked + .dark-mode-label .toggle-ball {
-     background-color: #222; 
+.dark-mode-checkbox:checked+.dark-mode-label .toggle-ball {
+    background-color: #222;
 }
 
 .dark-mode-label .sun {
@@ -254,18 +261,19 @@ a:hover {
     border: 1px solid var(--border-color);
     padding: 40px;
     margin-bottom: 3em;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
     transition: box-shadow 0.3s, transform 0.3s;
     border-radius: 10px;
 }
 
 .card:hover {
-    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
     transform: translateY(-5px);
 }
 
 
-.entry-header, .entry-content {
+.entry-header,
+.entry-content {
     margin-bottom: 20px;
 }
 
@@ -366,7 +374,7 @@ a:hover {
     align-items: center;
     justify-content: center;
     transition: transform 0.3s, background-color 0.3s;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 .back-to-top-button:hover {
@@ -510,15 +518,16 @@ a:hover {
         width: 44px;
         height: 24px;
     }
-    
+
     .toggle-ball {
         width: 18px;
         height: 18px;
         top: 3px;
         left: 3px;
     }
-    
-    .dark-mode-label .sun, .dark-mode-label .moon {
+
+    .dark-mode-label .sun,
+    .dark-mode-label .moon {
         top: 5px;
     }
 
