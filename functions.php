@@ -1,6 +1,7 @@
 <?php
 function dougiewougie_theme_setup() {
     add_theme_support( 'html5', array( 'search-form' ) );
+    add_theme_support( 'title-tag' );
 }
 add_action( 'after_setup_theme', 'dougiewougie_theme_setup' );
 
