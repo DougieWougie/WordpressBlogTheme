@@ -1,0 +1,30 @@
+<svg width="800" height="200" viewBox="0 0 800 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#D35400;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#E67E22;stop-opacity:1" />
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="2" dy="2" stdDeviation="3" flood-color="rgba(0,0,0,0.3)"/>
+    </filter>
+  </defs>
+  <rect width="800" height="200" fill="url(#grad1)" rx="10" ry="10" />
+  
+  <!-- Icon: Stopwatch -->
+  <g transform="translate(50, 40) scale(3)" stroke="white" stroke-width="2" fill="none">
+    <circle cx="12" cy="13" r="8" />
+    <path d="M12 21v-2" />
+    <path d="M12 5V2" />
+    <path d="M12 13l3-3" />
+    <path d="M20 5l-2 2" />
+    <path d="M4 5l2 2" />
+  </g>
+
+  <!-- Text -->
+  <text x="180" y="85" font-family="sans-serif" font-size="40" font-weight="bold" fill="white" filter="url(#shadow)">Running Pace Calculator</text>
+  <text x="180" y="135" font-family="sans-serif" font-size="24" fill="#FFF8E1">Track your progress. Smash your goals.</text>
+  
+  <!-- CTA Button-ish look -->
+  <rect x="600" y="70" width="150" height="60" rx="30" fill="white" />
+  <text x="675" y="110" font-family="sans-serif" font-size="20" font-weight="bold" fill="#D35400" text-anchor="middle">Try It Now</text>
+</svg>

@@ -2,6 +2,11 @@
 
 <div id="primary" class="content-area">
     <div class="container">
+        
+        <a href="https://dougals.me/" target="_blank" class="app-promo-link">
+            <img src="<?php echo get_template_directory_uri(); ?>/images/running-pace-banner.svg" alt="Running Pace Calculator App" class="app-promo-banner">
+        </a>
+
         <main id="main" class="site-main">
 
             <?php

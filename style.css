@@ -98,6 +98,23 @@ body.dark-mode {
     padding: 20px;
 }
 
+/* App Promo Banner */
+.app-promo-banner {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 200px;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.app-promo-banner:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+}
+
+
 #masthead {
     padding: 40px 0;
     border-bottom: 1px solid var(--header-border);
