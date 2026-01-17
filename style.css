@@ -98,22 +98,6 @@ body.dark-mode {
     padding: 20px;
 }
 
-/* App Promo Banner */
-.app-promo-banner {
-    display: block;
-    width: 100%;
-    height: auto;
-    max-height: 200px;
-    border-radius: 10px;
-    margin-bottom: 2rem;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.app-promo-banner:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 16px rgba(0,0,0,0.15);
-}
-
 
 #masthead {
     padding: 40px 0;
@@ -371,17 +355,16 @@ a:hover {
     color: var(--link-color);
 }
 
-/* Back to Top Button (Inline) */
-.back-to-top-container {
-    display: flex;
-    justify-content: flex-end;
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
-
-.back-to-top-button {
-    width: 40px;
-    height: 40px;
+/* Back to Top Button (Fixed) */
+#back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    left: auto;
+    margin: 0;
+    z-index: 9999;
+    width: 50px;
+    height: 50px;
     background-color: var(--text-color);
     color: var(--bg-color);
     border: none;
@@ -390,18 +373,29 @@ a:hover {
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: transform 0.3s, background-color 0.3s;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(20px);
 }
 
-.back-to-top-button:hover {
+#back-to-top.show {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+#back-to-top:hover {
     background-color: var(--link-color);
-    transform: translateY(-3px);
+    transform: translateY(-5px);
 }
 
-.back-to-top-button svg {
-    width: 20px;
-    height: 20px;
+#back-to-top svg {
+    width: 24px;
+    height: 24px;
 }
 
 /* Footer Layout */
