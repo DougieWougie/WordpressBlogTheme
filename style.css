@@ -4,6 +4,9 @@ Author: Dougie Richardson
 Author URI: https://dougiewougie.com
 Description: A modern WordPress theme for my personal blog.
 Version: 1.2
+Requires at least: 5.8
+Tested up to: 6.4
+Requires PHP: 7.4
 */
 
 /* Basic CSS Reset */
@@ -556,4 +559,99 @@ a:hover {
         width: 40px;
         height: 40px;
     }
+}
+
+/* Gutenberg Block Support */
+
+/* Alignments */
+.alignwide {
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.alignfull {
+    max-width: 100%;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+    width: 100vw;
+}
+
+.aligncenter {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+/* Common Blocks */
+
+/* Buttons */
+.wp-block-button__link {
+    background-color: var(--link-color);
+    color: var(--bg-color);
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.wp-block-button__link:hover {
+    background-color: var(--link-hover);
+    color: var(--bg-color);
+}
+
+.is-style-outline .wp-block-button__link {
+    background-color: transparent;
+    border: 2px solid var(--link-color);
+    color: var(--link-color);
+}
+
+.is-style-outline .wp-block-button__link:hover {
+    background-color: var(--link-color);
+    color: var(--bg-color);
+}
+
+/* Quotes */
+.wp-block-quote {
+    border-left: 4px solid var(--link-color);
+    margin: 0 0 1.5em;
+    padding: 0 0 0 1em;
+}
+
+.wp-block-quote cite {
+    font-size: 0.8em;
+    color: var(--text-color);
+    opacity: 0.8;
+}
+
+/* Tables */
+.wp-block-table td, 
+.wp-block-table th {
+    border-color: var(--border-color);
+}
+
+.wp-block-table.is-style-stripes tbody tr:nth-child(odd) {
+    background-color: var(--code-bg);
+}
+
+/* Separator */
+hr.wp-block-separator {
+    border-color: var(--border-color);
+    opacity: 0.5;
+}
+
+/* Images */
+.wp-block-image figcaption {
+    color: var(--text-color);
+    font-size: 0.8em;
+    text-align: center;
+    margin-top: 0.5em;
+    opacity: 0.8;
+}
+
+/* Code Block overrides */
+.wp-block-code {
+    background-color: var(--code-bg);
+    border-radius: 4px;
+    padding: 1em;
 }

@@ -1,7 +1,38 @@
 <?php
 function dougiewougie_theme_setup() {
-    add_theme_support( 'html5', array( 'search-form' ) );
+    add_theme_support( 'html5', array( 'search-form', 'gallery', 'caption', 'style', 'script' ) );
     add_theme_support( 'title-tag' );
+    
+    // Gutenberg Support
+    add_theme_support( 'align-wide' );
+    add_theme_support( 'responsive-embeds' );
+    add_theme_support( 'editor-styles' );
+    add_editor_style( 'editor-style.css' );
+    add_theme_support( 'wp-block-styles' );
+    
+    // Custom Color Palette
+    add_theme_support( 'editor-color-palette', array(
+        array(
+            'name'  => __( 'Background', 'dougiewougie' ),
+            'slug'  => 'bg',
+            'color' => '#FFF8E1',
+        ),
+        array(
+            'name'  => __( 'Text', 'dougiewougie' ),
+            'slug'  => 'text',
+            'color' => '#3E2723',
+        ),
+        array(
+            'name'  => __( 'Primary Link', 'dougiewougie' ),
+            'slug'  => 'primary',
+            'color' => '#D35400',
+        ),
+        array(
+            'name'  => __( 'Secondary Link', 'dougiewougie' ),
+            'slug'  => 'secondary',
+            'color' => '#E67E22',
+        ),
+    ) );
 }
 add_action( 'after_setup_theme', 'dougiewougie_theme_setup' );
 
@@ -44,7 +75,7 @@ function dougiewougie_advanced_search_where( $where ) {
     global $wpdb;
     if ( is_search() && ! is_admin() ) {
         $where = preg_replace(
-            "/\(\s*{$wpdb->posts}.post_title\s+LIKE\s*(\'[^\']+\')\s*\)/",
+            "/\(\s*{$wpdb->posts}.post_title\s+LIKE\s*(\'[^']+\')\s*)/",
             "({$wpdb->posts}.post_title LIKE $1) OR ({$wpdb->terms}.name LIKE $1)",
             $where
         );
@@ -60,3 +91,45 @@ function dougiewougie_advanced_search_distinct( $where ) {
     return $where;
 }
 add_filter('posts_distinct', 'dougiewougie_advanced_search_distinct');
+
+/**
+ * Register Custom Block Patterns.
+ */
+function dougiewougie_register_block_patterns() {
+    if ( function_exists( 'register_block_pattern' ) ) {
+        register_block_pattern(
+            'dougiewougie/contact-card',
+            array(
+                'title'       => __( 'Contact Card', 'dougiewougie' ),
+                'description' => _x( 'A simple contact card with profile image and social links.', 'Block pattern description', 'dougiewougie' ),
+                'categories'  => array( 'featured' ),
+                'content'     => '<!-- wp:group {"style":{"border":{"width":"1px"}},"borderColor":"border-color","backgroundColor":"card-bg","className":"card"} -->
+<div class="wp-block-group card has-border-color-border-color has-card-bg-background-color has-text-color has-background" style="border-width:1px"><!-- wp:columns -->
+<div class="wp-block-columns"><!-- wp:column {"width":"30%"} -->
+<div class="wp-block-column" style="flex-basis:30%"><!-- wp:image {"sizeSlug":"medium","linkDestination":"none","className":"profile-pic"} -->
+<figure class="wp-block-image size-medium profile-pic"><img src="' . esc_url( get_template_directory_uri() ) . '/images/ProfilePicture.png" alt=""/></figure>
+<!-- /wp:image --></div>
+<!-- /wp:column -->
+
+<!-- wp:column {"width":"70%"} -->
+<div class="wp-block-column" style="flex-basis:70%"><!-- wp:heading -->
+<h2 class="wp-block-heading">Dougie Richardson</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Contact me for any inquiries.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:social-links {"iconColor":"text","iconColorValue":"#3E2723","className":"is-style-default"} -->
+<ul class="wp-block-social-links is-style-default has-icon-color"><!-- wp:social-link {"url":"#","service":"twitter"} /-->
+<!-- wp:social-link {"url":"#","service":"linkedin"} /-->
+<!-- wp:social-link {"url":"#","service":"github"} /--></ul>
+<!-- /wp:social-links --></div>
+<!-- /wp:column --></div>
+<!-- /wp:columns --></div>
+<!-- /wp:group -->',
+            )
+        );
+    }
+}
+add_action( 'init', 'dougiewougie_register_block_patterns' );

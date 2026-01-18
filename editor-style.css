@@ -1,0 +1,36 @@
+/* Editor Styles */
+:root {
+    /* Light Mode Palette - Matching style.css */
+    --bg-color: #FFF8E1;
+    --text-color: #3E2723;
+    --link-color: #D35400;
+    --link-hover: #E67E22;
+    --card-bg: #FFFFFF;
+    --border-color: #D7CCC8;
+    --header-border: #EFEBE9;
+    --code-bg: #F5F5F5;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: sans-serif;
+    line-height: 1.6;
+}
+
+a {
+    color: var(--link-color);
+}
+
+/* Widths */
+.wp-block {
+    max-width: 800px; /* Matching .container */
+}
+
+.wp-block[data-align="wide"] {
+    max-width: 1000px;
+}
+
+.wp-block[data-align="full"] {
+    max-width: none;
+}
