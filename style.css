@@ -24,7 +24,6 @@ Requires PHP: 7.4
     --link-hover: #E67E22;
     --card-bg: #FFFFFF;
     --border-color: #D7CCC8;
-    --header-border: #EFEBE9;
     --code-bg: #F5F5F5;
 }
 
@@ -86,7 +85,6 @@ pre code {
     --link-hover: #5dade2;
     --card-bg: #333;
     --border-color: #444;
-    --header-border: #444;
     --code-bg: #444;
 }
 
@@ -103,8 +101,7 @@ body.dark-mode {
 
 
 #masthead {
-    padding: 40px 0;
-    border-bottom: 1px solid var(--header-border);
+    padding: 0;
     margin-bottom: 40px;
 }
 
@@ -625,7 +622,7 @@ a:hover {
 }
 
 /* Tables */
-.wp-block-table td, 
+.wp-block-table td,
 .wp-block-table th {
     border-color: var(--border-color);
 }

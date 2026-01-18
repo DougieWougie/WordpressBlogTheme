@@ -7,7 +7,6 @@
     --link-hover: #E67E22;
     --card-bg: #FFFFFF;
     --border-color: #D7CCC8;
-    --header-border: #EFEBE9;
     --code-bg: #F5F5F5;
 }
 
@@ -24,7 +23,8 @@ a {
 
 /* Widths */
 .wp-block {
-    max-width: 800px; /* Matching .container */
+    max-width: 800px;
+    /* Matching .container */
 }
 
 .wp-block[data-align="wide"] {
