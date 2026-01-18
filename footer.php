@@ -17,11 +17,11 @@
                 <a href="https://wordpress.org/">
                     <?php
                     /* translators: %s: CMS name, i.e. WordPress. */
-                    printf( esc_html__( 'Proudly powered by %s', 'dougiewougie-theme' ), 'WordPress' );
+                    printf( esc_html__( 'Powered by %s', 'dougiewougie-theme' ), 'WordPress' );
                     ?>
                 </a>
                 <span class="sep"> | </span>
-                <?php echo esc_html( '(c)2026 Dougie Richardson.' ); ?>
+                <?php echo esc_html( '©2026, Dougie Richardson.' ); ?>
             </div><!-- .site-info -->
         </div>
     </footer><!-- #colophon -->
